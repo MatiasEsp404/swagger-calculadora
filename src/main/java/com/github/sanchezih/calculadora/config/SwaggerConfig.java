@@ -1,11 +1,9 @@
 package com.github.sanchezih.calculadora.config;
 
+import com.github.sanchezih.calculadora.controller.CalculadoraAritmeticaController;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-
-import com.github.sanchezih.calculadora.controller.CalculadoraAritmeticaController;
-
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -17,27 +15,24 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @Configuration
 @EnableSwagger2
-@ComponentScan(basePackageClasses = { CalculadoraAritmeticaController.class })
+@ComponentScan(basePackageClasses = {CalculadoraAritmeticaController.class})
 public class SwaggerConfig {
-	private final static String BASE_PACKAGE = "com.github.sanchezih.calculadora.controller";
 
-	@Bean
-	public Docket api() {
-		return new Docket(DocumentationType.SWAGGER_2)//
-				.select()//
-				.apis(RequestHandlerSelectors.basePackage(BASE_PACKAGE))//
-				.paths(PathSelectors.any()) //
-				.build().apiInfo(getApiInfo()); //
-	}
+  private final static String BASE_PACKAGE = "com.github.sanchezih.calculadora.controller";
 
-	private ApiInfo getApiInfo() {
-		return new ApiInfoBuilder() //
-				.title("Calculadora aritmetica API") //
-				.description("API REST para la calculadora aritmetica") //
-				.termsOfServiceUrl("http://en.wikipedia.org/wiki/Terms_of_service") //
-				.contact(new Contact("Juan Perez", "http://juanperez.com", "jperez@mail.com")) //
-				.license("Apache License Version 2.0").licenseUrl("http://www.apache.org/licenses/LICENSE-2.0.html") //
-				.version("2.0") //
-				.build();
-	}
+  @Bean
+  public Docket api() {
+    return new Docket(DocumentationType.SWAGGER_2).select()
+        .apis(RequestHandlerSelectors.basePackage(BASE_PACKAGE)).paths(PathSelectors.any()).build()
+        .apiInfo(getApiInfo());
+  }
+
+  private ApiInfo getApiInfo() {
+    return new ApiInfoBuilder().title("Calculadora aritmetica API")
+        .description("API REST para la calculadora aritmetica")
+        .termsOfServiceUrl("http://en.wikipedia.org/wiki/Terms_of_service")
+        .contact(new Contact("Juan Perez", "http://juanperez.com", "jperez@mail.com"))
+        .license("Apache License Version 2.0")
+        .licenseUrl("http://www.apache.org/licenses/LICENSE-2.0.html").version("2.0").build();
+  }
 }
