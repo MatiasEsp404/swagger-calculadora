@@ -33,6 +33,7 @@ public class CalculadoraAritmeticaController {
       "operando2"})
   public String dividir(@RequestParam("operando1") Integer operando1,
       @RequestParam("operando2") Integer operando2) {
-    return (operando2 != 0) ? String.valueOf(operando1 / operando2) : "Error. División por 0";
+    return (operando2 != 0) ? String.valueOf(((float) operando1 / operando2))
+        : "Error. División por 0";
   }
 }
