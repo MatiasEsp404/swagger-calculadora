@@ -28,11 +28,11 @@ public class SwaggerConfig {
   }
 
   private ApiInfo getApiInfo() {
-    return new ApiInfoBuilder().title("Calculadora aritmetica API")
-        .description("API REST para la calculadora aritmetica")
-        .termsOfServiceUrl("http://en.wikipedia.org/wiki/Terms_of_service")
-        .contact(new Contact("Juan Perez", "http://juanperez.com", "jperez@mail.com"))
-        .license("Apache License Version 2.0")
+    return new ApiInfoBuilder().title("Calculadora Swagger")
+        .description("API REST para la calculadora cientifica y aritmetica con Swagger")
+        .termsOfServiceUrl("http://en.wikipedia.org/wiki/Terms_of_service").contact(
+            new Contact("Matias Espinola", "https://www.linkedin.com/in/matiasesp404/",
+                "unity.matias@gmail.com")).license("Apache License Version 2.0")
         .licenseUrl("http://www.apache.org/licenses/LICENSE-2.0.html").version("2.0").build();
   }
 }
